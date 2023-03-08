@@ -20,7 +20,6 @@ public class ApiConfiguration implements IApiConfiguration{
         ObjectMapper mapper = new ObjectMapper();
         TypeReference<Urls> typeReference = new TypeReference<>(){};
         InputStream inputStream = TypeReference.class.getResourceAsStream("/json/config.json");
-
         return mapper.readValue(inputStream,typeReference);
     }
 }
