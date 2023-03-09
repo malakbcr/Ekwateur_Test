@@ -1,0 +1,6 @@
+2023-03-09T11:18:12.665+01:00  INFO 27012 --- [main] c.e.e.PromoCodeServiceTest               : Starting PromoCodeServiceTest using Java 17.0.6 with PID 27012 (started by Admin in C:\Users\Admin\Documents\EkwateurProject\Ekwateur_Test\ekwateurProject)
+2023-03-09T11:18:12.667+01:00  INFO 27012 --- [main] c.e.e.PromoCodeServiceTest               : No active profile set, falling back to 1 default profile: "default"
+2023-03-09T11:18:13.807+01:00  INFO 27012 --- [main] c.e.e.PromoCodeServiceTest               : Started PromoCodeServiceTest in 1.463 seconds (process running for 3.091)
+2023-03-09T11:18:13.809+01:00  WARN 27012 --- [main] c.e.e.EkwateurProjectApplication         : FORGET TO ENTER A PROMO CODE!
+2023-03-09T11:18:13.872+01:00  INFO 27012 --- [main] c.e.e.service.PromoCodeService           : Valid Code Promotion! 
+2023-03-09T11:18:13.892+01:00  WARN 27012 --- [main] c.e.e.service.PromoCodeService           : Expired Code Promotion! 
