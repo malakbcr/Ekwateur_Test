@@ -2,6 +2,7 @@ package com.example.ekwateurProject.service;
 
 import com.example.ekwateurProject.configuration.ApiConfiguration;
 import com.example.ekwateurProject.configuration.ApiConnection;
+import com.example.ekwateurProject.exception.InvalidCodeException;
 import com.example.ekwateurProject.model.PromoCodeDto;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -42,7 +43,7 @@ public class PromoCodeService implements IPromoCodeService {
      * @param   {String} code
      * @return  {PromoCodeDto} promoCodeDto
      */
-    public PromoCodeDto getPromoCodeByCode(String code) throws IOException {
+    public PromoCodeDto getPromoCodeByCode(String code) throws IOException{
         Optional<PromoCodeDto> pCode = this.getAllPromoCodes().stream().filter(
                 x -> x.getCode().equals(code)).findAny();
         return pCode.orElse(null);
@@ -74,7 +75,7 @@ public class PromoCodeService implements IPromoCodeService {
      * @return { Boolean }
      */
     @Override
-    public Boolean isCodeValid(String code) throws IOException {
+    public Boolean isCodeValid(String code) throws InvalidCodeException, IOException {
         PromoCodeDto promoCode =  getPromoCodeByCode(code);
         return getAllPromoCodes().contains(promoCode) && isValidByDate(promoCode);
     }

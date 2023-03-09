@@ -2,6 +2,8 @@ package com.example.ekwateurProject.service;
 
 import com.example.ekwateurProject.configuration.ApiConfiguration;
 import com.example.ekwateurProject.configuration.ApiConnection;
+import com.example.ekwateurProject.exception.IncompatibleOfferException;
+import com.example.ekwateurProject.exception.InvalidCodeException;
 import com.example.ekwateurProject.model.CompatibleOffersDto;
 import com.example.ekwateurProject.model.OfferDetailsDto;
 import com.example.ekwateurProject.model.OfferDto;
@@ -62,20 +64,23 @@ public class OfferService implements IOfferService {
     @Override
     public CompatibleOffersDto getCompatibleOffers(PromoCodeDto promoCode) throws IOException {
         CompatibleOffersDto compatibleOffersDto = new CompatibleOffersDto();
-
-        List<OfferDto> compatibleOffers ;
+        List<OfferDto> compatibleOffers;
         if (this.codePromoService.isCodeValid(promoCode.getCode())) {
             compatibleOffers = getAllOffers().stream()
                     .filter(x -> x.getValidPromoCodeList()
                             .contains(promoCode.getCode())).toList();
-            if (!getAllOffers().isEmpty()) {
+            if (!compatibleOffers.isEmpty()) {
                 for (OfferDto ofr : compatibleOffers) {
                     compatibleOffersDto.setCode(promoCode.getCode());
                     compatibleOffersDto.setEndDate(promoCode.getEndDate());
                     compatibleOffersDto.setDiscountValue(promoCode.getDiscountValue());
                     compatibleOffersDto.getCompatibleOfferList().add(new OfferDetailsDto(ofr.getOfferType(), ofr.getOfferName()));
                 }
+            }else {
+                throw new IncompatibleOfferException("No compatible offer found for this code :" + promoCode.getCode());
             }
+        }else {
+            throw new InvalidCodeException("Expired or not found promoCode for this code :" + promoCode.getCode());
         }
         return compatibleOffersDto;
     }

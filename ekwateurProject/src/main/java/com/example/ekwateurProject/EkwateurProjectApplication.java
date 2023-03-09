@@ -28,20 +28,19 @@ public class EkwateurProjectApplication implements CommandLineRunner {
 
 		try {
 			PromoCodeDto promoCode = promoCodeService.getPromoCodeByCode(args[0]);
-			try {
-				if (promoCodeService.isCodeValid(args[0])) {
-					CompatibleOffersDto compatibleOffers = offerService.getCompatibleOffers(promoCode);
-					if (compatibleOffers != null) {
-						log.info("COMPATIBLE_OFFERS EXIST!");
-						offerService.createResultFile(compatibleOffers);
-					} else {
-						log.info("NOT COMPATIBLE_OFFERS FOUND!");
-					}
+			if (promoCodeService.isCodeValid(args[0])) {
+				CompatibleOffersDto compatibleOffers = offerService.getCompatibleOffers(promoCode);
+				if (compatibleOffers != null) {
+					log.info("COMPATIBLE_OFFERS EXIST!");
+					offerService.createResultFile(compatibleOffers);
+				} else {
+					log.info("NOT COMPATIBLE_OFFERS FOUND!");
 				}
-			} catch (InvalidCodeException e){
-				log.error(e.getMessage());
 			}
-		} catch (IndexOutOfBoundsException e){
+		} catch (InvalidCodeException exception){
+			log.error(exception.getMessage());
+		}
+		catch (IndexOutOfBoundsException e){
 			log.warn("FORGET TO ENTER A PROMO CODE!");
 		}
 	}

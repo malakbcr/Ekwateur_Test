@@ -1,5 +1,6 @@
 package com.example.ekwateurProject.configuration;
 
+import com.example.ekwateurProject.exception.InvalidCodeException;
 import com.example.ekwateurProject.model.Urls;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;

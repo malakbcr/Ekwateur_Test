@@ -1,7 +1,6 @@
-package com.example.ekwateurProject;
+package com.example.ekwateurProject.service;
 
 import com.example.ekwateurProject.model.PromoCodeDto;
-import com.example.ekwateurProject.service.PromoCodeService;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
