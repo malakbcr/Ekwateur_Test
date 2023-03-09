@@ -2,11 +2,13 @@ package com.example.ekwateurProject.model;
 
 import jakarta.annotation.Nullable;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.HashSet;
 import java.util.Set;
 
 @Data
+@NoArgsConstructor
 public class OfferDto {
     private OfferType offerType;
     private String offerName;
