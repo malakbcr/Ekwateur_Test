@@ -412,3 +412,9 @@ Caused by: com.fasterxml.jackson.databind.exc.InvalidDefinitionException: Cannot
 2023-03-09T13:59:19.722+01:00  INFO 14556 --- [main] c.e.e.service.OfferServiceTest           : No active profile set, falling back to 1 default profile: "default"
 2023-03-09T13:59:21.011+01:00  INFO 14556 --- [main] c.e.e.service.OfferServiceTest           : Started OfferServiceTest in 1.598 seconds (process running for 3.413)
 2023-03-09T13:59:21.014+01:00  WARN 14556 --- [main] c.e.e.EkwateurProjectApplication         : FORGET TO ENTER A PROMO CODE!
+2023-03-09T14:43:45.585+01:00  INFO 27056 --- [main] c.e.e.service.PromoCodeServiceTest       : Starting PromoCodeServiceTest using Java 17.0.6 with PID 27056 (started by Admin in C:\Users\Admin\Documents\EkwateurProject\Ekwateur_Test\ekwateurProject)
+2023-03-09T14:43:45.586+01:00  INFO 27056 --- [main] c.e.e.service.PromoCodeServiceTest       : No active profile set, falling back to 1 default profile: "default"
+2023-03-09T14:43:46.713+01:00  INFO 27056 --- [main] c.e.e.service.PromoCodeServiceTest       : Started PromoCodeServiceTest in 1.47 seconds (process running for 3.316)
+2023-03-09T14:43:46.716+01:00  WARN 27056 --- [main] c.e.e.EkwateurProjectApplication         : FORGET TO ENTER A PROMO CODE!
+2023-03-09T14:43:46.773+01:00  INFO 27056 --- [main] c.e.e.service.PromoCodeService           : Valid Code Promotion! 
+2023-03-09T14:43:46.795+01:00  WARN 27056 --- [main] c.e.e.service.PromoCodeService           : Expired Code Promotion! 
